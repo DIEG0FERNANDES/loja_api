@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "commonjs",
+        "lib": [
+            "ES2021"
+        ],
+        "outDir": "dist",
+        "rootDir": "src",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

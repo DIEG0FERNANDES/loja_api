@@ -13,15 +13,11 @@ app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 
-
 app.use('/produtos', produtosRouter)
-
-
 app.get('/', (req, res) => res.send('Loja API'))
 
-
 const port = process.env.PORT || 8080
-app.listen(port, () => console.log(`Server is listening on ${port}`))
+app.listen(port, () => console.log(`Server rodando na porta ${port}`))
 
 
 export default app
