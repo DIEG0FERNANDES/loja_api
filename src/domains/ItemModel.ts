@@ -1,16 +1,25 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 import { Produto } from './ProdutoModel';
 
-export interface ItemModel extends Document {
+export interface Item extends Document {
   quantidade: number;
   dataChegadaNoEstoque: Date;
-  produto: ProdutoModel['_id'];
+  produto: Produto['_id'];
 }
 
-const ItemSchema: Schema = new Schema({
-  quantidade: { type: Number, required: true },
-  dataChegadaNoEstoque: { type: Date, required: true },
-  produto: { type: Schema.Types.ObjectId, ref: 'Produto', required: true },
+const schema = new Schema<Item>({
+  quantidade: { 
+    type: Number, 
+    required: true 
+},
+  dataChegadaNoEstoque: { 
+    type: Date, 
+    required: true 
+},
+  produto: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'Produto', 
+    required: true },
 });
 
-export default mongoose.model<ItemModel>('Item', ItemSchema);
+export const ItemModel = model<Item>('Item', schema);
