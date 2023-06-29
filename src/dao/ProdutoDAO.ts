@@ -10,17 +10,6 @@ export class ProdutoDAO {
     const ProdutoObject = await ProdutoModel.find<Produto>({ Produto: ProdutoString });
     return ProdutoObject.at(0);
   }
-  
-  async findByLogradouro(logradouro: string) {
-    const ProdutoObject = await ProdutoModel.find<Produto>({
-      logradouro: {
-        $regex: logradouro,
-        $options: 'i'
-      }
-    });
-    
-    return ProdutoObject.at(0);
-  }
   async delete(){
     await ProdutoModel.deleteMany({})
   }
