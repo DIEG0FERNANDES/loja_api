@@ -1,27 +1,27 @@
-import { Cep, CepModel } from './../domains/CepModel';
+import { Produto, ProdutoModel } from './../domains/ProdutoModel';
 
 export class ProdutoDAO {
-  async save(cep: Cep) {
-    const savedCep = await CepModel.create(cep);
-    return savedCep;
+  async save(Produto: Produto) {
+    const savedProduto = await ProdutoModel.create(Produto);
+    return savedProduto;
   }
 
-  async findByCep(cepString: string) {
-    const cepObject = await CepModel.find<Cep>({ cep: cepString });
-    return cepObject.at(0);
+  async findByProduto(ProdutoString: string) {
+    const ProdutoObject = await ProdutoModel.find<Produto>({ Produto: ProdutoString });
+    return ProdutoObject.at(0);
   }
   
   async findByLogradouro(logradouro: string) {
-    const cepObject = await CepModel.find<Cep>({
+    const ProdutoObject = await ProdutoModel.find<Produto>({
       logradouro: {
         $regex: logradouro,
         $options: 'i'
       }
     });
     
-    return cepObject.at(0);
+    return ProdutoObject.at(0);
   }
   async delete(){
-    await CepModel.deleteMany({})
+    await ProdutoModel.deleteMany({})
   }
 }
