@@ -4,9 +4,7 @@ import logger from 'morgan'
 import { connectToMongoDB } from './database/index'
 import { produtosRouter } from './routes/Produtos'
 
-
 connectToMongoDB()
-
 
 const app = express()
 app.use(cors())
