@@ -1,20 +1,22 @@
 import { Document, Schema, model } from 'mongoose';
 
 export interface Produto extends Document {
+  id:number;
   descricao: string;
   perecivel: boolean;
 }
 
 const schema = new Schema<Produto>({
+  id: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
   descricao: {
     type: String,
-    required: true,
-    unique: true
   },
   perecivel: {
-    type: Boolean,
-    required: true,
-    unique: true
+    type: Boolean
   }
 });
 

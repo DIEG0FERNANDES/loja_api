@@ -1,10 +1,13 @@
 import { Router } from 'express';
-import { ProdutoController } from './../controllers/ProdutoController';
+import ProdutoController from './../controllers/ProdutoController';
+import ItemController from './../controllers/ItemController';
+
 
 export const produtosRouter = Router();
 const produtoController = new ProdutoController();
+const itemController = new ItemController();
 
-produtosRouter.post('/produtos', (req, res) => produtoController.cadastroItem(req, res));
-produtosRouter.delete('/produtos/:id', (req, res) => produtoController.delete(req, res));
-// produtosRouter.post('/itens', (req, res) => produtoController.findByCep(req, res));
-// produtosRouter.get('/itens/produto/:produtoId', (req, res) => produtoController.findByLogradouro(req, res));
+produtosRouter.post('/', (req, res) => produtoController.save(req, res));
+produtosRouter.delete('/:id', (req, res) => produtoController.deleteById(req, res));
+produtosRouter.post('/itens', (req, res) => itemController.save(req, res));
+produtosRouter.get('/itens/produto/:produtoid', (req, res) => itemController.getItemsByProduct(req, res));
