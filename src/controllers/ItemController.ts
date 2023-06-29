@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import ItemDAO from '../dao/ItemDAO';
-import ProdutoDAO from './../dao/ProdutoDAO';
+import {ProdutoDAO} from './../dao/ProdutoDAO';
 
 class ItemController {
   private _itemDAO: ItemDAO;

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import ProdutoDAO from '../dao/ProdutoDAO';
+import {ProdutoDAO} from '../dao/ProdutoDAO';
 
 class ProdutoController {
   private _produtoDAO: ProdutoDAO;

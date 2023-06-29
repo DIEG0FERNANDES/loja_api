@@ -1,7 +1,7 @@
 import { Produto, ProdutoModel } from './../domains/ProdutoModel';
 
 export class ProdutoDAO {
-  async cadastroItem(produto: Produto): Promise<number> {
+  async save(produto: Produto): Promise<number> {
     const response = await ProdutoModel.create(produto);
     const { id } = response;
     return id;
